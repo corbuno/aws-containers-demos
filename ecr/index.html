@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Origami Swan</title>
+    <style>
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>This swan is running on container <span id=hostname></span></h2>
+    <script>
+        var url = "/etc/hostname";
+        var jsonFile = new XMLHttpRequest();
+        jsonFile.open("GET", url, true);
+        jsonFile.send();
+
+        jsonFile.onreadystatechange = function () {
+            if (jsonFile.readyState == 4 && jsonFile.status == 200) {
+                document.getElementById("hostname").innerHTML = jsonFile.responseText;
+            }
+        }
+    </script>
+    <img src="swan.jpg" />
+</body>
+
+</html>
