@@ -1,0 +1,13 @@
+{
+    "ImageRepository": {
+      "ImageIdentifier": "<IMG_URI>",
+      "ImageConfiguration": {
+        "Port": "8080"
+      },
+      "ImageRepositoryType": "ECR"
+    },
+    "AutoDeploymentsEnabled": false,
+    "AuthenticationConfiguration": {
+      "AccessRoleArn": "<IAM_ROLE>"
+    }
+  }
