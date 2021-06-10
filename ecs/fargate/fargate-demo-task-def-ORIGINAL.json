@@ -1,0 +1,26 @@
+{
+    "containerDefinitions": [
+      {
+        "portMappings": [
+          {
+            "hostPort": 8080,
+            "protocol": "tcp",
+            "containerPort": 8080
+          }
+        ],
+        "cpu": 0,
+        "memory": 512,
+        "image": "<IMG_URI>",
+        "name": "<ECS_FARGATE_TASK_DEF>"
+      }
+    ],
+    
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "executionRoleArn":"<ROLE_ARN>",
+    "family":"<ECS_FARGATE_TASK_DEF>",
+    "networkMode": "awsvpc", 
+    "cpu": "256",
+    "memory": "512"
+  }
