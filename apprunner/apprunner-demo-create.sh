@@ -8,7 +8,7 @@ APPRUNNER_TASKS_ROLE=apprunner-ECRAccessRole
 DOCKER_IMG=frontend
 SERVICE_NAME=$DOCKER_IMG
 
-# iam role for ecs tasks
+# iam role for letting App Runner read from ECR
 aws iam create-role --region $AWS_REGION --role-name $APPRUNNER_TASKS_ROLE \
   --assume-role-policy-document file://apprunner-policy.json \
   --query 'Role.Arn' \
