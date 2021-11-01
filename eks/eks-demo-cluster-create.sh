@@ -18,7 +18,7 @@ chmod 400 $EKS_KEYPAIR.pem
 # Create cluster with Fargate and 2 EC2 instances, Spot and SSM enabled
 eksctl create cluster \
   --name $EKS_CLUSTER \
-  --version 1.20 \
+  --version 1.21 \
   --region $AWS_REGION \
   --zones "$AWS_REGION"a,"$AWS_REGION"b \
   --vpc-cidr 10.1.0.0/16 \
@@ -38,7 +38,7 @@ kubectl edit -n kube-system configmap/aws-auth
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | \
   sed "s/{{cluster_name}}/$EKS_CLUSTER/;s/{{region_name}}/$AWS_REGION/" | kubectl apply -f -
 
-# get EKS AMI for k8s 1.20
+# get EKS AMI for k8s 1.21
 aws ssm get-parameter \
-  --name /aws/service/eks/optimized-ami/1.20/amazon-linux-2/recommended/image_id \
+  --name /aws/service/eks/optimized-ami/1.21/amazon-linux-2/recommended/image_id \
   --region $AWS_REGION --query "Parameter.Value" --output text
