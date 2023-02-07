@@ -11,3 +11,6 @@ docker container rm $CONTAINER_ID
 
 # Cleanup image
 docker image rm $DOCKER_IMG 
+
+# free port (if container not stopped before reboot)
+kill -9 $(lsof -t -i:49160)
